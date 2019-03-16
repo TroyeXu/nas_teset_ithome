@@ -1,5 +1,9 @@
 const pkg = require('./package')
-
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/<repository_name>/'
+  }
+} : {}
 
 module.exports = {
   // mode
@@ -99,6 +103,7 @@ module.exports = {
 
     }
   },
+  ...routerBase
   // loading: {
   //   color: 'blue',
   //   failedColor: 'yelllow',
