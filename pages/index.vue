@@ -1,7 +1,12 @@
 <template>
   <section class="container">
     <div>
-      <logo />
+      <no-ssr
+        placeholder="loadingininigni-logo"
+        placeholader-tag="span"
+      >
+        <logo />
+      </no-ssr>
       <h1 class="title">
         hello
       </h1>
@@ -15,7 +20,7 @@
           class="button--green"
         >Documentation</a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+      ㄎ    href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey"
         >GitHub</a>
@@ -25,13 +30,34 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from "~/components/Logo.vue";
+import NoSSR from "vue-no-ssr";
 
 export default {
   components: {
-    Logo
+    Logo,
+    "no-ssr": NoSSR
+  },
+  loading: true,
+  mounted() {
+    debugger
+    setTimeout(() => {
+      // Extend loader for an additional 5s
+      this.goToFinal();
+      this.$nuxt.$loading.finish();
+    }, 5000);
+  },
+  methods: {
+    goToFinal() {
+      // Start loader immediately
+      this.$nuxt.$loading.start();
+      // Actually change route 5s later
+      setTimeout(() => {
+        this.$router.replace("/login");
+      }, 5000);
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -45,8 +71,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

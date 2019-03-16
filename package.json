@@ -11,12 +11,19 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0",
+    "element-ui": "^2.4.11",
     "express": "^4.16.4",
-    "element-ui": "^2.4.11"
+    "nuxt": "^2.4.0",
+    "vue-no-ssr": "^1.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "susy": "^3.0.5"
   }
 }
